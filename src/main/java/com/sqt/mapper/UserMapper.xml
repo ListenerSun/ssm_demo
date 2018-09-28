@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sqt.mapper.UserMapper">
+
+	<sql id="field"> id,username,password </sql>
+	<!-- 查询用户 -->
+	<select id="findUser" resultType="com.sqt.pojo.User" parameterType="com.sqt.pojo.User">
+		select
+		<include refid="field"></include>
+		from user where username=#{username} and password=#{password}
+	</select>
+	<!-- 查询所有用户 -->
+	<select id="findList"  resultType="com.sqt.pojo.User">
+		select * from user;
+	</select>
+
+</mapper>
